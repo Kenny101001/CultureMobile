@@ -1,0 +1,203 @@
+.pagedetail{
+
+    overflow-y: auto;
+    height: 100%;
+    /* background-color: #8BC462; */
+    background-color: #ffffff;
+}
+.pagedetail .pageDetails .photo-form .photo-container .photo-list .photo-item {
+    background-color: rgb(240, 240, 240);
+    /* position: relative; */
+    img{
+        width: 250px;
+        height: 250px;
+        margin: 10px;
+        border-radius: 5px;
+        z-index: -1;
+        margin-bottom: 10%;
+    }
+    button{
+        height: 50px;
+        width: 50px;
+        border-radius: 5px;
+        float: left;
+        margin-left: 40%;
+        background-color: rgb(240, 240, 240);
+        margin-top: -78px;
+        z-index: 1;
+        position: relative;
+        border: none;
+    }
+    svg{
+        color: #02181b;
+        width: 20px;
+        height: 20px;
+    }
+    
+}
+
+
+.pagedetail .pageDetails .photo-form .photo-container .photo-list{
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    justify-content: start;
+    height: 300px;
+    width: auto;
+    /* overflow: visible; */
+}
+
+.pagedetail .pageDetails .photo-form .controls {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    button{
+        margin-left: 35px;
+        margin-top: 10px;
+        width: 80%;
+        height: 40px;
+        border-radius: 5px;
+        background-color: rgb(121, 193, 202);
+        border: none;
+      
+    }
+    input{
+        padding: 10px;
+        align-items: center;
+        margin-left: 35px;
+        width: 75%;
+        height: 40px;
+        border-radius: 10px;
+        color: #02181b;
+        border: 1px solid rgb(121, 193, 202);
+    }
+
+    
+}
+
+.pagedetail .pageDetails .photo-form .description{
+
+    .titre{
+        display: inline;
+        justify-content: start;
+        width: 100%;
+        height: auto;
+
+        p{
+            margin-top: -10px;
+            text-align: left;
+            color: #02181b;
+            display: flex;
+            font-size: 16px;
+        }
+
+        .titremodif{
+            display: flex;
+            align-items: center;
+            justify-content:  space-between;
+            margin: 25px;
+
+            h2{
+                text-align: left;
+                color: #02181b;
+                display: flex;
+            }
+            svg{
+                width: 20px;
+                height: 20px;
+                color: #02181b;
+            }
+            button{
+                background-color: #ffffff;
+                border: none;
+                height: 40px;
+                
+            }
+
+        }
+
+        .textmodif{
+            margin: 25px;
+            border-radius: 5px;
+            button{
+                background-color: rgb(121, 193, 202);
+                border: none;
+                height: 40px;
+                width: 100px;
+                border-radius: 10px;
+                
+            }
+        }
+
+        .geo{
+            display: inline-block;
+            align-items: center;
+            justify-content:  space-between;
+            margin: 25px;
+
+            h2{
+                text-align: left;
+                color: #02181b;
+                display: flex;
+            }
+        }
+
+        .taille{
+            margin-left: 25px;
+            margin-right: 25px;
+
+            h2{
+                text-align: left;
+                color: #02181b;
+                display: flex;
+            }
+
+            .dim{
+                display: flex;
+                justify-content: space-between;
+                color: #02181b;
+
+                h4{
+                    padding-bottom: 10px;
+                    color: #02181b;
+                }
+
+               
+            }
+        }
+
+        .parcelle{
+            height: auto;
+            width: 100%;
+            display: block;
+            .pa{
+                display: block;
+                justify-content: space-between;
+                align-items: center;
+                height: auto;
+                margin-left: 25px;
+                margin-right: 25px;
+                h2{
+                    color: #02181b;
+                    font-weight:bold ;
+                }
+                span    {
+                    margin-top: 20px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #ffffff;
+                    
+                    width: auto;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 5px;
+                }
+            }
+            
+        }
+        
+    } 
+}

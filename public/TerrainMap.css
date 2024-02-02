@@ -1,0 +1,20 @@
+.map-container-wrapper{
+    display: inline;
+    justify-content: center;
+    border-radius: 25px;
+    height: 300px;
+
+    .map{
+        border-radius: 5px;
+        border: none;
+    }
+
+    button{
+        background-color: rgb(121, 193, 202);
+                border: none;
+                height: 40px;
+                width: 100%;
+                border-radius: 5px;
+                margin-bottom: 15px;
+    }
+}

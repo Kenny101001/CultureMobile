@@ -1,0 +1,59 @@
+/* TerrainList.css */
+
+.parcelle-container {
+    margin-top: -100px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    overflow-x: auto;
+    height: 300px;
+    align-items: center;
+    color: #02181b;
+  }
+  
+  .parcelle-container .parcelle-item {
+    width: auto;
+    margin: 15px;
+    border-radius: 10px;
+    background-color: #d4e8eb;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .parcelle-container .parcelle-item img{
+    width: 300px;
+    height: 120px;
+    border-radius: 5px;
+  }
+  
+  .parcelle-container .parcelle-info {
+    text-align: center;
+    display: block;
+    justify-content: center;
+  }
+  .parcelle-container .parcelle-item .parcelle-info p {
+    
+    justify-content: center;
+  }
+  
+  .parcelle-container .parcelle-info button {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 24px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .parcelle-container .parcelle-info button svg{
+    color: #173602;
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+    transform: rotate(60deg);
+  }

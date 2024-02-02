@@ -1,0 +1,68 @@
+/* TerrainList.css */
+
+.terrain-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow-y: auto;
+  }
+  
+  .terrain-container .terrain-item {
+    width: 300px;
+    height: auto;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: rgb(112, 179, 187);
+    border-radius: 5px;
+    padding: 15px;
+  }
+
+  .terrain-container .terrain-item img{
+    width: 150px;
+    height: 100%;
+    border-radius: 5px;
+    float: right;
+  }
+  
+  .terrain-container .terrain-info {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .terrain-container .terrain-info h3{
+    text-align: left;
+    width: 80%;
+    margin-left: 10px;
+  }
+
+  .terrain-container .terrain-info p{
+    text-align: left;
+    display: block; 
+    margin-top: 5px; 
+    font-size: small;
+  }
+  
+  .terrain-container .terrain-info button {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%;
+    margin-left: 100%;
+  }
+  
+  .terrain-container .terrain-info button svg{
+    color: #173602;
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    transform: rotate(60deg);
+  }
