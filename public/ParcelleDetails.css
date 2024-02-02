@@ -1,39 +1,41 @@
 .parcelle-details{
-    background-color: #8BC462;
+    background-color: #f7f7f7;
     height: 100%;
     overflow-y: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    display: block;
     
 }
 
+.parcelle-details  > *:not(.burgerMenu){
+    padding-left: 15px;
+} 
+
 .parcelle-details .taille-parcelle{
-    margin-top: -350px;
+    margin-top: -50%;
     margin-left: 25px;
     margin-right: 25px;
-    
+    display: block;
+ 
 
     h2{
         text-align: left;
-        color: #173602;
-        display: flex;
+        color: #02181b;  
     }
 
     .dim-parcelle{
-        display: flex;
+        
         justify-content: space-between;
-        color: #173602;
-        background-color: #173602;
+        color: #02181b;  
         height: 100px;
-        padding: 15px;
-        border-radius: 25px;
+        border-radius: 5px;
         h3{
             padding-bottom: 10px;
-            color: #8BC462;
+            color: #02181b;
         }
         p{
             margin-top: -20px;
-            color: #ffffff;
+            color: #02181b;
             font-size: 16px;
         }
 

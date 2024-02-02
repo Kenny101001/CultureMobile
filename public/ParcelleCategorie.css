@@ -5,7 +5,7 @@
     /* margin: 25px; */
     h2{
         margin-left: 25px;
-        color: #173602;
+        color: #02181b;
     }
 
     p{
@@ -28,13 +28,13 @@
         background-color: #ffffff;
         width: 100px;
         height: 40px;
-        color: #173602;
+        color: #02181b;
     }
     button{
         border: none;
         height: 35px;
         width: 35px;
-        background-color: #173602;
+        background-color: #02181b;
         border-radius: 20px;
         margin-left: 5px;
     }    
@@ -51,6 +51,7 @@
 .categories-list .descriptionparcelle{
 
     margin-top: 30px;
+    color: #02181b;     
     .titremodif{
         display: flex;
         align-items: center;
@@ -58,17 +59,17 @@
 
         h2{
             text-align: left;
-            color: #173602;
+            
             display: flex;
         }
         svg{
             width: 20px;
             height: 20px;
-            color: #173602;
+            color: #02181b;
             margin-right: 25px;
         }
         button{
-            background-color: #8bc462;
+            background-color: rgb(121, 193, 202);
             border: none;
             height: 40px;
             
@@ -81,7 +82,7 @@
         border-radius: 10px;
         font-size: 12px;
         button{
-            background-color: #173602;
+            background-color: #02181b;
             border: none;
             height: 40px;
             width: 100px;
@@ -92,25 +93,27 @@
 }
 
 .categories-list .new-category{
-    display: flex;
+    display: block;
     justify-content: center;
-
+    
     button{
-        width: 100px;
+        width: 90%;
         height: 40px;
-        background-color: #173602;
+        background-color: rgb(121, 193, 202);
         border: none;
         margin-left: 10px;
-        border-radius: 10px;
-        color: #8bc462;
+        border-radius: 5px;
+        color: #02181b;
+        margin-top: 10px ;
     }
 
     input{
-        width: auto;
+        margin-left: 7px;  
+        width: 90%;
         height: 40px;
         background-color: #ffffff;
         border: none;
-        border-radius: 10px;
-        color: #173602;
+        border-radius: 5px;
+        color: #02181b;
     }
 }

@@ -1,0 +1,17 @@
+.footer {
+    background-color: #02181b;
+    color: #fff;
+    margin-top: 15% ;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .footer-item {
+    display: flex;
+    align-items: center;
+    background-color: #02181b;
+  }
+  

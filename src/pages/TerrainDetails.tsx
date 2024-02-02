@@ -9,7 +9,7 @@ const TerrainDetails = () => {
   const [photos, setPhotos] = useState(['image/champ1.jpg', 'image/champ2.jpg', 'image/champ3.jpg', 'image/champ1.jpg','image/champ2.jpg',]);
   const [newPhoto, setNewPhoto] = useState('');
   const [isEditMode, setIsEditMode] = useState(false); // Nouvel état pour gérer le mode de modification du paragraphe
-  const [description, setDescription] = useState("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,");
+  const [description, setDescription] = useState("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas seulement survécu cinq siècles,");
 
   const [style, set] = useSpring(() => ({
     transform: 'translateX(0%)',
@@ -148,7 +148,7 @@ const TerrainDetails = () => {
                             </div>
                       <ParcelleComponent  terrains={terrains} />
                     </div>
-                    
+
                     <div className="geo">
                         <h2>Géolocalisation</h2>
                         <div className="map">

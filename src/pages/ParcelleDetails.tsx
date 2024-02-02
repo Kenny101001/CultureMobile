@@ -5,6 +5,7 @@ import '../../public/ParcelleDetails.css';
 import { useHistory } from 'react-router';
 import ParcelleCategorie from './ParcelleCategorie';
 import BurgerMenu from './BurgerMenu';
+import Footer from './Footer';
 
 function ParcelleDetails() {
 
@@ -19,24 +20,26 @@ function ParcelleDetails() {
 
   return (
     <div className="parcelle-details">
-      <BurgerMenu />
+      <div className='burgerMenu'>
+        <BurgerMenu />
+      </div>
       <ParcelleCategorie />
 
       <div className="taille-parcelle">
-              <h2>Taille</h2>
-              <div className="dim-parcelle">
-                  <div className="lo">
-                      <h3>Longueur</h3>
-                      <p>150m</p>
-                  </div>
-                  <div className="la">
-                      <h3>Largeur</h3>
-                      <p>50m</p>
-
-                  </div>
-                  </div>
+          <h2>Taille</h2>
+          <div className="dim-parcelle">
+              <div className="lo">
+                  <h3>Longueur</h3>
+                  <p>150m</p>
               </div>
-          </div>
+              <div className="la">
+                  <h3>Largeur</h3>
+                  <p>50m</p>
+              </div>
+          </div>          
+      </div>
+      <Footer />
+    </div>
   );
 }
 
