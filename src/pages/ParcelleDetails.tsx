@@ -38,7 +38,6 @@ function ParcelleDetails() {
               </div>
           </div>          
       </div>
-      <Footer />
     </div>
   );
 }
