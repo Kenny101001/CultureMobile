@@ -12,8 +12,12 @@ const ParcelleComponent: React.FC<{ terrains: any[] }> = ({ terrains }) => {
 //     console.log(`Détails du terrain avec l'ID ${terrainId}`);
 //   };
 
-  const redirectToPage2 = () => {
-    history.push('/ParcelleDetails');
+  const AjouterCulture = () => {
+    history.push('/AjoutCulture');
+  };
+
+  const Recolte = () => {
+    history.push('/Recolte');
   };
 
   return (
@@ -25,10 +29,9 @@ const ParcelleComponent: React.FC<{ terrains: any[] }> = ({ terrains }) => {
             <h3>{terrain.name}</h3>
             <p className='description-Parcelle'>Description parcelle, Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
 
-            
-              { <button><span> Ajouter Culture</span></button> }
+              {<button onClick={AjouterCulture}><span> Ajouter Culture</span></button> }
 
-              { <button><span>Recolte</span></button> }
+              {<button onClick={Recolte}><span>Recolte</span></button> }
             
           </div>
         </div>
