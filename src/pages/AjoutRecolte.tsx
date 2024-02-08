@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
 import '../../public/Home.css';
 import { useHistory } from 'react-router';
-const AjoutCulture = () => {
+const AjoutRecolte = () => {
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
 
   const [formData, setFormData] = useState({
-    culture: '',
+    recolte: '',
+    date: '',
   });
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
@@ -44,16 +45,18 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
 
       <form onSubmit={handleSubmit} className='formulaire'>
         <label>
-           Culture: <br />  
-          <select name="longueur" value={formData.culture} onChange={handleChange}>
-            <option>optionn 1</option>
-            <option>optionn 2</option>
-            <option>optionn 3 </option>
-          </select>
+           Recolte: <br />  
+           <input type="number" placeholder='Votre recolte...' name="recolte" value={formData.recolte} onChange={handleChange} />
         </label>
+
+        <br />
+        <label>
+            Date: <br />  
+           <input type="date" name="date" value={formData.date} onChange={handleChange} />
+        </label>
+
         <br />
         <button type="submit" className='btn1' onClick={redirectToPage1}>Valider</button>
-
         <br />
         <button type="submit" className='btn2' onClick={redirectToPage1}>Retour</button>
       </form>
@@ -62,4 +65,4 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
   );
 };
 
-export default AjoutCulture;
+export default AjoutRecolte;

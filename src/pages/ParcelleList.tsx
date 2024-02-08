@@ -17,7 +17,7 @@ const ParcelleComponent: React.FC<{ terrains: any[] }> = ({ terrains }) => {
   };
 
   const Recolte = () => {
-    history.push('/Recolte');
+    history.push('/AjoutRecolte');
   };
 
   return (
