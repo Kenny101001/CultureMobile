@@ -1,7 +1,7 @@
 /* TerrainList.css */
 
 .parcelle-container {
-    margin-top: -100px;
+    margin-top: -70px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: start;
@@ -37,13 +37,13 @@
     justify-content: center;
   }
   
-  .parcelle-container .parcelle-info button {
+  .parcelle-container .parcelle-info .button {
     width: 50px;
     height: 50px;
     margin: 10px;
     border-radius: 24px;
     border: none;
-    font-size: 20px;
+    font-size: 5px;
     font-weight: bold;
     background-color: #ffffff;
     display: flex;
@@ -51,7 +51,7 @@
     align-items: center;
   }
   
-  .parcelle-container .parcelle-info button svg{
+  .parcelle-container .parcelle-info .button svg{
     color: #173602;
     width: 50px;
     height: 50px;
