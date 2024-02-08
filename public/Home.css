@@ -31,6 +31,10 @@
   .page-container .formulaire{
     margin-top: -30px;
     margin-bottom: -10px;
+
+    select option{
+      color: #02181b;
+    }
   }
 
   .page-container label input{ 

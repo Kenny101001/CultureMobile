@@ -1,11 +1,41 @@
 // HomePage.js (ou tout autre composant où vous utilisez BurgerMenu)
 import React, { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
+import { useEffect } from 'react';
 import '../../public/Home.css';
+import axios from 'axios';
 import { useHistory } from 'react-router';
+
 const AjoutCulture = () => {
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
+const [cultures, setCultures] = useState([]); // Stockez les cultures récupérées depuis le service web
+
+useEffect(() => {
+    const fetchCultures = async () => {
+      try {
+        // Récupérer idUser depuis le localStorage
+        const idUser = localStorage.getItem('userData');
+    
+        if (!idUser) {
+          console.error('Aucun utilisateur connecté');
+          return;
+        }
+    
+        const response = await axios.get(`https://culturebackoffice-production.up.railway.app/categoriecultures/categorieculture`);
+        const formattedCultures = response.data.map((culture: { nom: any; }) => culture.nom); // Formatez les cultures pour obtenir une liste de noms de culture
+        setCultures(formattedCultures); // Stockez les noms de culture dans l'état local
+        // Formater les données
+        
+      } catch (error) {
+        console.error('Erreur lors de la récupération des terrains :', error);
+      }
+    };
+    
+
+    fetchCultures();
+  }, []);
+
 
   const [formData, setFormData] = useState({
     culture: '',
@@ -21,10 +51,6 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
     console.log('Données soumises :', formData);
   };
 
-  const handlePhotoChange = (e: { target: { files: any; }; }) => {
-    const files = e.target.files;
-    setSelectedPhotos(Array.from(files));
-  };
 
   const redirectToPage2 = () => {
     history.push('/Homepage');
@@ -46,9 +72,9 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
         <label>
            Culture: <br />  
           <select name="longueur" value={formData.culture} onChange={handleChange}>
-            <option>optionn 1</option>
-            <option>optionn 2</option>
-            <option>optionn 3 </option>
+            {cultures.map((culture, index) => (
+                <option key={index}>{culture}</option>
+            ))}
           </select>
         </label>
         <br />
