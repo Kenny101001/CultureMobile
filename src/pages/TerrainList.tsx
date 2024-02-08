@@ -7,6 +7,7 @@ const TerrainComponent: React.FC<{ terrains: any[] }> = ({ terrains }) => {
 
     const redirectToTerrainDetails = (terrainId: number) => {
         // Redirection vers la page de détails du terrain avec l'ID du terrain
+        console.log(`Détails du terrain avec l'ID ${terrainId}`);
         history.push(`/TerrainDetails/${terrainId}`);
     };
 

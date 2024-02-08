@@ -24,10 +24,11 @@ const ParcelleComponent: React.FC<{ terrains: any[] }> = ({ terrains }) => {
     <div className="parcelle-container">
       {terrains.map((terrain, index) => (
         <div key={index} className="parcelle-item">
-          <img src={terrain.backgroundImage} alt={`Terrain ${index}`} />
+          {/* <img src={terrain.backgroundImage} alt={`Terrain ${index}`} /> */}
           <div className="parcelle-info">
-            <h3>{terrain.name}</h3>
-            <p className='description-Parcelle'>Description parcelle, Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+            <h3>{terrain.nomParcelle}</h3>
+            <h3>Taille : {terrain.tailleParcelle} m2</h3>
+            {/* <p className='description-Parcelle'></p> */}
 
               {<button onClick={AjouterCulture}><span> Ajouter Culture</span></button> }
 
