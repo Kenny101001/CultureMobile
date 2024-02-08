@@ -56,7 +56,7 @@
     font-size: 15px;
     color: #02181b;
     margin: 25px;
-    margin-top: 300px;
+    margin-top: 400px;
     text-align: left;
     display: flex;
     justify-content: space-between;
@@ -65,6 +65,7 @@
 
   .terrainListe .list {
     margin-top: -40px;
+    margin-bottom: 80px;
   }
 
 
