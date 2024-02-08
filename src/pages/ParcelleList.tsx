@@ -19,7 +19,7 @@ const ParcelleComponent: React.FC<{ terrains: any[] }> = ({ terrains }) => {
   return (
     <div className="parcelle-container">
       {terrains.map((terrain, index) => (
-        <div key={index} className="parcelle-item" onClick={redirectToPage2}>
+        <div key={index} className="parcelle-item">
           <img src={terrain.backgroundImage} alt={`Terrain ${index}`} />
           <div className="parcelle-info">
             <h3>{terrain.name}</h3>

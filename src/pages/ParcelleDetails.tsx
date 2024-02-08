@@ -24,8 +24,8 @@ function ParcelleDetails() {
         <BurgerMenu />
       </div>
       <ParcelleCategorie />
-
-      <div className="taille-parcelle">
+      
+      <div className="taille-parcelle" scroll-assist="false">
           <h2>Taille</h2>
           <div className="dim-parcelle">
               <div className="lo">
