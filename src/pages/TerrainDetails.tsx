@@ -47,25 +47,25 @@ const TerrainDetails = () => {
   const terrains = [
     {
       id: 1,
-      name: 'Terrain 1',
+      name: 'Parcel 1',
       backgroundImage: 'image/champ1.jpg',
       description : 'Magnifique terrain avec vue sur la montagne',
     },
     {
       id: 2,
-      name: 'Terrain 2',
+      name: 'Parcel 2',
       backgroundImage: 'image/champ2.jpg',
       description : 'Idéal pour les amateurs de nature et de calme.',
     },
     {
       id: 3,
-      name: 'Terrain 3',
+      name: 'Parcel 3',
       backgroundImage: 'image/champ3.jpg',
       description : 'Proche des commodités et des transports en commun.',
     },
     {
       id: 4,
-      name: 'Terrain 4',
+      name: 'Parcel 4',
       backgroundImage: 'image/champ1.jpg',
       description : 'Parcelle de terrain constructible avec accès facile.',
     },
