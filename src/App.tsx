@@ -11,6 +11,7 @@ import './App.css';
 import TerrainPage from './pages/TerrainPage';
 import TerrainDetails from './pages/TerrainDetails';
 import ParcelleDetails from './pages/ParcelleDetails';
+import InsertParcel from './pages/InsertParcel';
 
 // import '@ionic/react/css/core.css';
 // import '@ionic/react/css/normalize.css';
@@ -38,6 +39,7 @@ const App: React.FC = () => (
           <Route path="/Home" component={Home} exact />
           <Route path="/TerrainDetails" component={TerrainDetails} exact />
           <Route path="/ParcelleDetails" component={ParcelleDetails} exact />
+          <Route path="/InsertParcel" component={InsertParcel} exact />
           <Redirect from="/" to="/start" exact />
         </Switch>
       </IonRouterOutlet>

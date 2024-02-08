@@ -1,17 +1,19 @@
 // HomePage.js (ou tout autre composant où vous utilisez BurgerMenu)
 import React, { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
-import '../../public/Home.css';
+import '../../public/InsertParcel.css';
 import { useHistory } from 'react-router';
-const Home = () => {
+
+const InsertParcel = () => {
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
 
   const [formData, setFormData] = useState({
-    longueur: '',
-    largeur: '',
-    nombreP: '',
-
+    nom: '',
+    prenom: '',
+    email: '',
+    motDePasse: '',
+    confirmationMotDePasse: '',
   });
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
@@ -42,29 +44,27 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
       <BurgerMenu />
     <div className="page-container">
       <div className="titre">
-        <h1>Isérer nouveau <br />terrain</h1>
+        <h1>Isérer nouvelle <br />Parcel</h1>
       </div>
 
       <form onSubmit={handleSubmit} className='formulaire'>
         <label>
-           Longueur: <br />
+           Nom: <br />
           <input type="text" placeholder='longueur du terrain' name="longueur" value={formData.nom} onChange={handleChange} />
         </label>
         <br />
         <label>
-          Largeur :<br />
+          Taille :<br />
           <input type="text" placeholder='largeur du terrain' name="largeur" value={formData.prenom} onChange={handleChange} />
         </label>
         <br />
         <label>
-          Parcelle :<br />
-          <input type="email" placeholder='nombre de parcelle' name="nombreP" value={formData.email} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Longitude et latitude :<br />
-          {/* <input type="password" placeholder='votre mot de passe' name="motDePasse" value={formData.motDePasse} onChange={handleChange} /> */}
-          <button type="submit" className='btn3' onClick={redirectToPage1}>Voir map</button>
+          Type culture :<br />
+          <select className='select'>
+            <option>option 1</option>
+            <option>option 2</option>
+            <option>option 3</option>
+          </select>
         </label>
         <br />
         
@@ -76,4 +76,4 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
   );
 };
 
-export default Home;
+export default InsertParcel;

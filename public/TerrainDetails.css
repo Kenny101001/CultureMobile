@@ -171,6 +171,7 @@
             height: auto;
             width: 100%;
             display: block;
+            
             .pa{
                 display: block;
                 justify-content: space-between;
@@ -183,18 +184,40 @@
                     font-weight:bold ;
                 }
                 span    {
-                    margin-top: 20px;
+                    margin-top: -10px;
+                    margin-bottom: 20px;
                     font-size: 20px;
                     font-weight: bold;
-                    color: #ffffff;
+                    color: #02181b;
                     
                     width: auto;
                     height: 50px;
-                    display: flex;
+                    display: block;
                     justify-content: center;
                     align-items: center;
                     border-radius: 5px;
                 }
+            }
+            h1{
+                color: #02181b ;
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+            button{
+                margin-top: -30px;
+                margin-bottom: 50px;
+                margin-left: 5%;
+                font-weight: bold;
+                font-size: 50px;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                display: block;
+                width: 90%;
+                background-color: rgb(121, 193, 202);
+                color: #ffffff;
+                border: none;
+                border-radius: 5px;
             }
             
         }

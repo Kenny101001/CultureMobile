@@ -1,5 +1,5 @@
 
-  .page{
+.page{
     height: 100%;
     background-color: rgb(121, 193, 202);
 
@@ -41,6 +41,17 @@
     background-color: #ffffff;
     border-bottom: 2px solid #ffffff;
     color: #ffffff;
+  }
+
+  .page-container label select {
+    width: 300px;
+    height: 40px;
+    margin: 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    color: #02181b;
   }
 
   .page-container label{ 

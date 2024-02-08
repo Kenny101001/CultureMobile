@@ -4,12 +4,19 @@ import '../../public/TerrainDetails.css';
 import BurgerMenu from './BurgerMenu';
 import TerrainMap from './TerrainMap';
 import ParcelleComponent from './ParcelleList';
+import { useHistory } from 'react-router';
 
 const TerrainDetails = () => {
   const [photos, setPhotos] = useState(['image/champ1.jpg', 'image/champ2.jpg', 'image/champ3.jpg', 'image/champ1.jpg','image/champ2.jpg',]);
   const [newPhoto, setNewPhoto] = useState('');
   const [isEditMode, setIsEditMode] = useState(false); // Nouvel état pour gérer le mode de modification du paragraphe
   const [description, setDescription] = useState("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas seulement survécu cinq siècles,");
+
+  const history = useHistory();
+
+  const redirectToPage2 = () => {
+      history.push('/InsertParcel');
+    };
 
   const [style, set] = useSpring(() => ({
     transform: 'translateX(0%)',
@@ -138,14 +145,21 @@ const TerrainDetails = () => {
                         value={newPhoto}
                         onChange={(e) => setNewPhoto(e.target.value)}
                       />
-                      <button onClick={handleAddPhoto}>Ajouter</button>
+                      <button onClick={handleAddPhoto}>Ajouter une image</button>
                     </div>
-
+                          
                     <div className="parcelle">
                             <div className="pa">
                                 <h2>Vos Parcelles</h2>
                                 <span>Au nombres de 4</span>
                             </div>
+                            
+                            <h1>Ajouter une parcelle</h1>
+                            <br></br>
+                            <div>
+                              <button onClick={redirectToPage2}>+</button>
+                            </div>
+
                       <ParcelleComponent  terrains={terrains} />
                     </div>
 
