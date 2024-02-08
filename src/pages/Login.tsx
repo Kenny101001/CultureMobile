@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import '../../public/Login.css';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+
 const Inscription : React.FC = () => {
 const history = useHistory();
   const [formData, setFormData] = useState({
    
-    email: '',
+    nom: '',
     motDePasse: '',
    
   });
@@ -15,10 +17,31 @@ const history = useHistory();
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log('Données soumises :', formData);
-  };
+  
+    try {
+            const response = await axios.get(`https://culturebackoffice-production.up.railway.app/users/checkLoginMobile?username=${formData.nom}&password=${formData.motDePasse}`);
+            
+            console.log('Réponse du serveur:', response.data);
+            
+            // Vérifier si la valeur retournée est supérieure à 1
+            if (response.data > 1) {
+                // Stocker la valeur de response.data dans le localStorage
+                localStorage.setItem('userData', response.data);
+                redirectToPage1();
+            } else {
+                // Afficher un message d'erreur à l'utilisateur sur la page de connexion
+                alert('Identifiants incorrects. Veuillez réessayer.');
+            }
+        } catch (error) {
+            console.error('Erreur lors de la requête :', error);
+            // Gérer les erreurs de requête
+        }
+    };
+
+
 
   const redirectToPage1 = () => {
     history.push('/TerrainPage');
@@ -37,8 +60,8 @@ const history = useHistory();
 
         <div className="log">
           <label>
-            Email :<br />
-            <input type="email" placeholder='votre email' name="email" value={formData.email} onChange={handleChange} />
+            Nom et Prénom :<br />
+            <input type="text" placeholder='votre nom complet' name="nom" value={formData.nom} onChange={handleChange} />
           </label>
           <br />
           <label>
@@ -48,7 +71,7 @@ const history = useHistory();
         </div>
         
         <br />
-        <button type="submit" className='btn1' onClick={redirectToPage1}>Se connecter</button>
+        <button type="submit" className='btn1'>Se connecter</button>
       </form>
       <button type="submit" className='btn2' onClick={redirectToPage2}>Retour</button>
 

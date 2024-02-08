@@ -40,6 +40,7 @@ const App: React.FC = () => (
           <Route path="/TerrainDetails" component={TerrainDetails} exact />
           <Route path="/ParcelleDetails" component={ParcelleDetails} exact />
           <Route path="/InsertParcel" component={InsertParcel} exact />
+          <Route path="/TerrainDetails/:idTerrain" component={TerrainDetails} exact />
           <Redirect from="/" to="/start" exact />
         </Switch>
       </IonRouterOutlet>

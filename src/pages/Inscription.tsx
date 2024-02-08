@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import '../../public/Inscription.css';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+
 const Inscription : React.FC = () => {
 const history = useHistory();
   const [formData, setFormData] = useState({
     nom: '',
-    prenom: '',
-    email: '',
     motDePasse: '',
     confirmationMotDePasse: '',
   });
@@ -16,17 +16,29 @@ const history = useHistory();
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log('Données soumises :', formData);
+  
+    try {
+      const response = await axios.post(`https://culturebackoffice-production.up.railway.app/users/user?username=${formData.nom}&password=${formData.motDePasse}`);
+
+      console.log('Réponse du serveur:', response.data);
+      // Rediriger vers une autre page après l'inscription réussie
+      redirectToPage1();
+    } catch (error) {
+      console.error('Erreur lors de la requête :', error);
+      // Gérer les erreurs de requête
+    }
   };
+  
 
   const redirectToPage2 = () => {
     history.push('/Homepage');
   };
 
   const redirectToPage1 = () => {
-    history.push('/Home');
+    history.push('/Login');
   };
 
   return (
@@ -36,19 +48,10 @@ const history = useHistory();
         </div>
       <form onSubmit={handleSubmit} className='formulaire'>
         <label>
-          Nom : <br />
+          Nom et Prénom : <br />
           <input type="text" placeholder='votre nom...' name="nom" value={formData.nom} onChange={handleChange} />
         </label>
-        <br />
-        <label>
-          Prénom :<br />
-          <input type="text" placeholder='votre Prenom...' name="prenom" value={formData.prenom} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Email :<br />
-          <input type="email" placeholder='votreEmail@gmailcom' name="email" value={formData.email} onChange={handleChange} />
-        </label>
+        
         <br />
         <label>
           Mot de passe :<br />
@@ -66,7 +69,7 @@ const history = useHistory();
           />
         </label>
         <br />
-        <button type="submit" className='btn1' onClick={redirectToPage1}>S'inscrire</button>
+        <button type="submit" className='btn1'>S'inscrire</button>
       </form>
       <button type="submit" className='btn2' onClick={redirectToPage2}>Retour</button>
 

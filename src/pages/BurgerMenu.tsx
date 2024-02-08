@@ -1,4 +1,3 @@
-// BurgerMenu.js
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { logOutOutline } from 'ionicons/icons';
@@ -16,6 +15,10 @@ const BurgerMenu = () => {
   
   const handleLinkClick = (link: LocationDescriptor<unknown>) => {
     console.log(`Navigating to ${link}`);
+    if(link === '/HomePage') {
+      // Effacer les données du localStorage avant de se déconnecter
+      localStorage.removeItem('userData');
+    }
     history.push(link);
     toggleMenu();
   };
@@ -36,8 +39,8 @@ const BurgerMenu = () => {
       {menuOpen && (
         <div className="menu">
           <div className="menu-item" onClick={() => handleLinkClick('/HomePage')}>
-          <IonIcon icon={logOutOutline} />
-            Deconnection
+            <IonIcon icon={logOutOutline} />
+            Déconnexion
           </div>
         </div>
       )}
