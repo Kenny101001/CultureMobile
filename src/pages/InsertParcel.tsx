@@ -10,10 +10,8 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
 
   const [formData, setFormData] = useState({
     nom: '',
-    prenom: '',
-    email: '',
-    motDePasse: '',
-    confirmationMotDePasse: '',
+    taille: '',
+    culture: '',
   });
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
