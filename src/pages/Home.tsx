@@ -1,8 +1,10 @@
 // HomePage.js (ou tout autre composant où vous utilisez BurgerMenu)
 import React, { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
-import '../../public/Home.css';
+import '../../public/HomePage.css';
+import axios from 'axios';
 import { useHistory } from 'react-router';
+
 const Home = () => {
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
