@@ -43,7 +43,7 @@ const App: React.FC = () => (
           <Route path="/ParcelleDetails" component={ParcelleDetails} exact />
           <Route path="/InsertParcel" component={InsertParcel} exact />
           <Route path="/AjoutCulture/:idParcelle" component={AjoutCulture} exact />
-          <Route path="/AjoutRecolte/:idParcelle" component={AjoutRecolte} exact />
+          <Route path="/AjoutRecolte/:idParcelle/:idTerrain" component={AjoutRecolte} exact />
           <Route path="/TerrainDetails/:idTerrain" component={TerrainDetails} exact />
           <Route path="/InsertParcel/:idTerrain" component={InsertParcel} exact />
           <Redirect from="/" to="/start" exact />
