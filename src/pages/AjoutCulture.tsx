@@ -10,23 +10,41 @@ const AjoutCulture = () => {
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
 const [cultures, setCultures] = useState([]); // Stockez les cultures récupérées depuis le service web
+const [formData, setFormData] = useState({
+    culture: '',
+    date: '',
+  });
 
 useEffect(() => {
     const fetchCultures = async () => {
       try {
         // Récupérer idUser depuis le localStorage
         const idUser = localStorage.getItem('userData');
-    
+        
+        if (formData.culture != null) {
+            //const response = await axios.get(`https://culturebackoffice-production.up.railway.app/users/checkLoginMobile?username=${formData.culture}`);
+            // Traitez la réponse ici
+        } else {
+        console.log('La valeur de formData.culture est null. Aucune requête ne sera envoyée.');
+        }
+
+
         if (!idUser) {
           console.error('Aucun utilisateur connecté');
           return;
         }
     
         const response = await axios.get(`https://culturebackoffice-production.up.railway.app/categoriecultures/categorieculture`);
-        const formattedCultures = response.data.map((culture: { nom: any; }) => culture.nom); // Formatez les cultures pour obtenir une liste de noms de culture
-        setCultures(formattedCultures); // Stockez les noms de culture dans l'état local
+        // Formatez les cultures pour obtenir une liste de noms de culture
+        // Stockez les noms de culture dans l'état local
         // Formater les données
-        
+
+        const formattedCultures = response.data.map((culture) => ({
+            id: culture.idCategorieCulture, // Utilisez idTerrain comme id du terrain
+            nom: `Culture ${culture.nomCateCult}`, // Utilisez la description comme nom du terrain
+            rendement: culture.rendement,
+          }));
+          setCultures(formattedCultures); 
       } catch (error) {
         console.error('Erreur lors de la récupération des terrains :', error);
       }
@@ -36,10 +54,7 @@ useEffect(() => {
     fetchCultures();
   }, []);
 
-
-  const [formData, setFormData] = useState({
-    culture: '',
-  });
+  
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
@@ -71,11 +86,16 @@ useEffect(() => {
       <form onSubmit={handleSubmit} className='formulaire'>
         <label>
            Culture: <br />  
-          <select name="longueur" value={formData.culture} onChange={handleChange}>
+          <select name="culture" value={formData.culture} onChange={handleChange}>
             {cultures.map((culture, index) => (
-                <option key={index}>{culture}</option>
+                <option value={culture.id} key={index}>{culture.nom}</option>
             ))}
           </select>
+        </label>
+        <br />   
+        <label>
+            Date: <br />  
+           <input type="date" name="date" value={formData.date} onChange={handleChange} />
         </label>
         <br />
         <button type="submit" className='btn1' onClick={redirectToPage1}>Valider</button>
