@@ -2,16 +2,17 @@
 import React, { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
 import '../../public/InsertParcel.css';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import axios from 'axios';
 
 const InsertParcel = () => {
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
-
+const { idTerrain } = useParams();
   const [formData, setFormData] = useState({
-    nom: '',
+    nomp: '',
     taille: '',
-    culture: '',
+    idTerrain: idTerrain,
   });
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
@@ -19,10 +20,22 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log('Données soumises :', formData);
+    
+    try {
+      const response = await axios.post(`http://localhost:8080/parcelles/insertParcelleCulture?nomParcelle=${formData.nomp}&taille=${formData.taille}&idTerrain=${formData.idTerrain}`);
+
+      console.log('Réponse du serveur:', response.data);
+      // Rediriger vers une autre page après l'inscription réussie
+      redirectToPage1();
+    } catch (error) {
+      console.error('Erreur lors de la requête :', error);
+      // Gérer les erreurs de requête
+    }
   };
+
 
   const handlePhotoChange = (e: { target: { files: any; }; }) => {
     const files = e.target.files;
@@ -42,31 +55,31 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
       <BurgerMenu />
     <div className="page-container">
       <div className="titre">
-        <h1>Isérer nouvelle <br />Parcel</h1>
+        <h1>Insérer nouvelle <br />Parcel</h1>
       </div>
 
       <form onSubmit={handleSubmit} className='formulaire'>
         <label>
-           Nom: <br />
-          <input type="text" placeholder='longueur du terrain' name="longueur" value={formData.nom} onChange={handleChange} />
+          Nom: <br />
+          <input type="text" placeholder='nom du parcelle' name="nomp" value={formData.nomp} onChange={handleChange} />
         </label>
         <br />
         <label>
           Taille :<br />
-          <input type="text" placeholder='largeur du terrain' name="largeur" value={formData.prenom} onChange={handleChange} />
+          <input type="text" placeholder='taille du terrain' name="taille" value={formData.taille} onChange={handleChange} />
         </label>
         <br />
-        <label>
+        {/* <label>
           Type culture :<br />
           <select className='select'>
             <option>option 1</option>
             <option>option 2</option>
             <option>option 3</option>
           </select>
-        </label>
+        </label> */}
         <br />
         
-        <button type="submit" className='btn1' onClick={redirectToPage1}>Valider</button>
+        <button type="submit" className='btn1'>Valider</button>
       </form>
       <button type="submit" className='btn2' onClick={redirectToPage2}>Retour</button>
       </div>

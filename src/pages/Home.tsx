@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
 import '../../public/Home.css';
 import { useHistory } from 'react-router';
+import axios from 'axios';
 const Home = () => {
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
@@ -25,7 +26,7 @@ const idUser = localStorage.getItem('userData');
     console.log('Données soumises :', formData);
     
     try {
-      const response = await axios.post(`htthttps://culturebackoffice-production.up.railway.app/terrains/demandeterrain?desc=${formData.desc}&geolocalisation=${formData.geolocalisation}&idUser=${formData.idUser}`);
+      const response = await axios.post(`https://culturebackoffice-production.up.railway.app/terrains/demandeterrain?desc=${formData.desc}&geolocalisation=${formData.geolocalisation}&idUser=${formData.idUser}`);
 
       console.log('Réponse du serveur:', response.data);
       // Rediriger vers une autre page après l'inscription réussie

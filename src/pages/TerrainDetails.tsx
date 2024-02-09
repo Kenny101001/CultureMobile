@@ -17,7 +17,11 @@ const TerrainDetails = () => {
   const { idTerrain } = useParams(); // Récupérez l'ID du terrain depuis les paramètres d'URL
   const [terrainDetails, setTerrainDetails] = useState([]);
   // console.log("hello");
-
+  const redirectToInsertParcelle = (terrainId: number) => {
+      // Redirection vers la page de détails du terrain avec l'ID du terrain
+      console.log(`Détails du terrain avec l'ID ${terrainId}`);
+      history.push(`/InsertParcel/${terrainId}`);
+  };
   useEffect(() => {
     const fetchTerrainDetails = async () => {
       try {
@@ -152,7 +156,7 @@ const TerrainDetails = () => {
                             <h1>Ajouter une parcelle</h1>
                             <br></br>
                             <div>
-                              <button onClick={redirectToPage2}>+</button>
+                              <button onClick={() => redirectToInsertParcelle(idTerrain)}>+</button>
                             </div>
                             <div className="pa">
                                 <h2>Vos Parcelles</h2>
