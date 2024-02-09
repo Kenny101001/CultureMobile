@@ -1,7 +1,9 @@
 // HomePage.js (ou tout autre composant où vous utilisez BurgerMenu)
 import React, { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
+import { useEffect } from 'react';
 import '../../public/Home.css';
+import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useParams } from 'react-router';
 const AjoutRecolte = () => {
@@ -24,8 +26,8 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
         // Récupérer idUser depuis le localStorage
         const idUser = localStorage.getItem('userData');
         
-        if (formData.culture != null) {
-          const response = await axios.get(`https://culturebackoffice-production.up.railway.app/parcelleCulture/insert?dateInsert=${formData.date}&idParcel=${parcelleId}&idCulture=${formData.culture}`);
+        if (formData.recolte != null) {
+          const response = await axios.get(`https://culturebackoffice-production.up.railway.app/Recolte/insertSecond?dateInsert=${formData.date}&idParcelle=${parcelleId}&idTerrain=${}&rec=${formData.recolte}`);
             // Traitez la réponse ici
           console.log('Réponse du serveur:', response.data);
 
