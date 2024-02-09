@@ -43,6 +43,7 @@ const TerrainDetails = () => {
         }));
         setTerrainDetails(formattedTerrains);
         console.log("terrainDetails:", terrainDetails);
+
       } catch (error) {
         console.error('Erreur lors de la récupération des détails du terrain :', error);
       }
@@ -114,14 +115,14 @@ const TerrainDetails = () => {
                                 <textarea
                                     rows={5}
                                     cols={40}
-                                    value={terrainDetails[0].nom}
+                                    value={terrainDetails[0]?.nom}
                                     onChange={(e) => setDescription(e.target.value)}
                                 />
                                 <br />
                                 <button className='descr' onClick={handleValidateEdit}>Valider</button>
                             </>
                         ) : (
-                            <p>{terrainDetails[0].nom}</p>
+                            <p>{terrainDetails[0]?.nom}</p>
                         )}
                     </div>
 
@@ -129,24 +130,23 @@ const TerrainDetails = () => {
                     
                     <div className="photo-container">
                       <animated.div style={style} className="photo-list">
-                      <img src={terrainDetails[0].backgroundImage} /> 
+                      <img src={terrainDetails[0]?.backgroundImage} /> 
 
                       </animated.div>
                     </div>
 
                           
                     <div className="parcelle">
-                            <div className="pa">
-                                <h2>Vos Parcelles</h2>
-                                
-                            </div>
                             
                             <h1>Ajouter une parcelle</h1>
                             <br></br>
                             <div>
                               <button onClick={redirectToPage2}>+</button>
                             </div>
-
+                            <div className="pa">
+                                <h2>Vos Parcelles</h2>
+                                
+                            </div>
                       <ParcelleComponent  terrains={terrainDetails} />
                     </div>
 
