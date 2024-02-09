@@ -27,6 +27,7 @@ const BurgerMenu = () => {
     history.push('/TerrainPage');
   };
 
+
   return (
     <div className={`burger-menu-container ${menuOpen ? 'menu-open' : ''}`}>
       <div className="logo" onClick={redirectToPage2}>Modelize</div>
@@ -41,6 +42,10 @@ const BurgerMenu = () => {
           <div className="menu-item" onClick={() => handleLinkClick('/HomePage')}>
             <IonIcon icon={logOutOutline} />
             Déconnexion
+          </div>
+          <div className="menu-item" onClick={redirectToPage2}>
+            
+            Liste Terrains
           </div>
         </div>
       )}

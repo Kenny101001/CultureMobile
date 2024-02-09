@@ -6,11 +6,12 @@ import { useHistory } from 'react-router';
 const Home = () => {
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
-
+// Récupérer idUser depuis le localStorage
+const idUser = localStorage.getItem('userData');
   const [formData, setFormData] = useState({
-    longueur: '',
-    largeur: '',
-    nombreP: '',
+    desc: '',
+    geolocalisation: '',
+    idUser: idUser,
 
   });
 
@@ -19,9 +20,20 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log('Données soumises :', formData);
+    
+    try {
+      const response = await axios.post(`htthttps://culturebackoffice-production.up.railway.app/terrains/demandeterrain?desc=${formData.desc}&geolocalisation=${formData.geolocalisation}&idUser=${formData.idUser}`);
+
+      console.log('Réponse du serveur:', response.data);
+      // Rediriger vers une autre page après l'inscription réussie
+      redirectToPage1();
+    } catch (error) {
+      console.error('Erreur lors de la requête :', error);
+      // Gérer les erreurs de requête
+    }
   };
 
   const handlePhotoChange = (e: { target: { files: any; }; }) => {
@@ -42,33 +54,23 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
       <BurgerMenu />
     <div className="page-container">
       <div className="titre">
-        <h1>Isérer nouveau <br />terrain</h1>
+        <h1>Insérer nouveau <br />terrain</h1>
       </div>
 
       <form onSubmit={handleSubmit} className='formulaire'>
         <label>
-           Longueur: <br />
-          <input type="text" placeholder='longueur du terrain' name="longueur" value={formData.nom} onChange={handleChange} />
+          Description: <br />
+          <input type="text" placeholder='description du terrain' name="description" value={formData.desc} onChange={handleChange} />
         </label>
+        
         <br />
         <label>
-          Largeur :<br />
-          <input type="text" placeholder='largeur du terrain' name="largeur" value={formData.prenom} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Parcelle :<br />
-          <input type="email" placeholder='nombre de parcelle' name="nombreP" value={formData.email} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Longitude et latitude :<br />
-          {/* <input type="password" placeholder='votre mot de passe' name="motDePasse" value={formData.motDePasse} onChange={handleChange} /> */}
-          <button type="submit" className='btn3' onClick={redirectToPage1}>Voir map</button>
+          Géolocalisation: <br />
+          <input type="text" placeholder='geolocalisation du terrain' name="geolocalisation" value={formData.geolocalisation} onChange={handleChange} />
         </label>
         <br />
         
-        <button type="submit" className='btn1' onClick={redirectToPage1}>Valider</button>
+        <button type="submit" className='btn1'>Valider</button>
       </form>
       <button type="submit" className='btn2' onClick={redirectToPage2}>Retour</button>
       </div>

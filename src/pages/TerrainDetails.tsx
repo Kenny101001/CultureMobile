@@ -97,7 +97,7 @@ const TerrainDetails = () => {
                         <h2>{terrain.name}</h2>
                       ))} */}
                       {terrainDetails && terrainDetails.length > 0 ? (
-                        <h2>{terrainDetails[0].nom}</h2>
+                        <h2>Terrain {terrainDetails[0].id}</h2>
                       ) : (
                         <p>Chargement en cours...</p>
                       )}
@@ -115,14 +115,14 @@ const TerrainDetails = () => {
                                 <textarea
                                     rows={5}
                                     cols={40}
-                                    value={terrainDetails[0]?.nom}
+                                    value={terrainDetails[0]?.description}
                                     onChange={(e) => setDescription(e.target.value)}
                                 />
                                 <br />
                                 <button className='descr' onClick={handleValidateEdit}>Valider</button>
                             </>
                         ) : (
-                            <p>{terrainDetails[0]?.nom}</p>
+                            <p>{terrainDetails[0]?.description}</p>
                         )}
                     </div>
 
@@ -133,6 +133,17 @@ const TerrainDetails = () => {
                       <img src={terrainDetails[0]?.backgroundImage} /> 
 
                       </animated.div>
+                    </div>
+                    
+                    <div className="controls">
+                      <br />
+                      <input
+                        type="file"
+                         placeholder="Nouvelle photo URL"
+                        value={newPhoto}
+                        onChange={(e) => setNewPhoto(e.target.value)}
+                      />
+                      <button onClick={handleAddPhoto}>Modifier l'image</button>
                     </div>
 
                           
