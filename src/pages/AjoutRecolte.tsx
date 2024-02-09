@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
 import '../../public/Home.css';
 import { useHistory } from 'react-router';
+import { useParams } from 'react-router';
 const AjoutRecolte = () => {
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
@@ -11,6 +12,34 @@ const [selectedPhotos, setSelectedPhotos] = useState([]);
     recolte: '',
     date: '',
   });
+
+  const { idParcelle } = useParams<{ idParcelle: string }>();
+
+  // Convertir l'ID de la parcelle en nombre si nécessaire
+  const parcelleId = parseInt(idParcelle);
+
+  useEffect(() => {
+    const fetchCultures = async () => {
+      try {
+        // Récupérer idUser depuis le localStorage
+        const idUser = localStorage.getItem('userData');
+        
+        if (formData.culture != null) {
+          const response = await axios.get(`https://culturebackoffice-production.up.railway.app/parcelleCulture/insert?dateInsert=${formData.date}&idParcel=${parcelleId}&idCulture=${formData.culture}`);
+            // Traitez la réponse ici
+          console.log('Réponse du serveur:', response.data);
+
+        } else {
+        console.log('La valeur de formData.culture est null. Aucune requête ne sera envoyée.');
+        }
+      } catch (error) {
+        console.error('Erreur lors de la récupération des terrains :', error);
+      }
+    };
+    
+
+    fetchCultures();
+  }, []);
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;

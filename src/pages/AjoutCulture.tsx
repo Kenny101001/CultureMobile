@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import '../../public/Home.css';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import { useParams } from 'react-router';
 
 const AjoutCulture = () => {
 const history = useHistory();
@@ -15,6 +16,12 @@ const [formData, setFormData] = useState({
     date: '',
   });
 
+// Récupérer les paramètres d'URL, y compris l'ID de la parcelle
+const { idParcelle } = useParams<{ idParcelle: string }>();
+
+// Convertir l'ID de la parcelle en nombre si nécessaire
+const parcelleId = parseInt(idParcelle);
+
 useEffect(() => {
     const fetchCultures = async () => {
       try {
@@ -22,8 +29,10 @@ useEffect(() => {
         const idUser = localStorage.getItem('userData');
         
         if (formData.culture != null) {
-            //const response = await axios.get(`https://culturebackoffice-production.up.railway.app/users/checkLoginMobile?username=${formData.culture}`);
+          const response = await axios.get(`https://culturebackoffice-production.up.railway.app/parcelleCulture/insert?dateInsert=${formData.date}&idParcel=${parcelleId}&idCulture=${formData.culture}`);
             // Traitez la réponse ici
+          console.log('Réponse du serveur:', response.data);
+
         } else {
         console.log('La valeur de formData.culture est null. Aucune requête ne sera envoyée.');
         }

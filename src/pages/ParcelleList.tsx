@@ -12,12 +12,12 @@ const ParcelleComponent: React.FC<{ terrains: any[] }> = ({ terrains }) => {
 //     console.log(`Détails du terrain avec l'ID ${terrainId}`);
 //   };
 
-  const AjouterCulture = () => {
-    history.push('/AjoutCulture');
+  const AjouterCulture = (parcelleId: number) => {
+    history.push(`/AjoutCulture/${parcelleId}`);
   };
 
-  const Recolte = () => {
-    history.push('/AjoutRecolte');
+  const Recolte = (parcelleId: number) => {
+    history.push(`/AjoutRecolte/${parcelleId}`);
   };
 
   return (
@@ -30,9 +30,13 @@ const ParcelleComponent: React.FC<{ terrains: any[] }> = ({ terrains }) => {
             <h3>Taille : {terrain.tailleParcelle} m2</h3>
             {/* <p className='description-Parcelle'></p> */}
 
-              {<button onClick={AjouterCulture}><span> Ajouter Culture</span></button> }
+              <button onClick={() => AjouterCulture(terrain.idParcelle)}>
+                <span> Ajouter Culture</span>
+              </button>
 
-              {<button onClick={Recolte}><span>Recolte</span></button> }
+              <button onClick={() => Recolte(terrain.idParcelle)}>
+                <span> Recolte</span>
+              </button>
             
           </div>
         </div>

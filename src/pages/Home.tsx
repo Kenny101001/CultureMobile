@@ -1,9 +1,9 @@
 // HomePage.js (ou tout autre composant où vous utilisez BurgerMenu)
 import React, { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
-import '../../public/Home.css';
-import { useHistory } from 'react-router';
+import '../../public/HomePage.css';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 const Home = () => {
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
@@ -61,7 +61,7 @@ const idUser = localStorage.getItem('userData');
       <form onSubmit={handleSubmit} className='formulaire'>
         <label>
           Description: <br />
-          <input type="text" placeholder='description du terrain' name="description" value={formData.desc} onChange={handleChange} />
+          <input type="text" placeholder='description du terrain' name="desc" value={formData.desc} onChange={handleChange} />
         </label>
         
         <br />
