@@ -62,7 +62,7 @@ const idUser = localStorage.getItem('userData');
       <form onSubmit={handleSubmit} className='formulaire'>
         <label>
           Description: <br />
-          <input type="text" placeholder='description du terrain' name="description" value={formData.desc} onChange={handleChange} />
+          <input type="text" placeholder='description du terrain' name="desc" value={formData.desc} onChange={handleChange} />
         </label>
         
         <br />
