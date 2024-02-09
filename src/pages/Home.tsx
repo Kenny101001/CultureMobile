@@ -45,7 +45,7 @@ const idUser = localStorage.getItem('userData');
     
     try {
       // Envoyer la requête POST avec Axios
-      const response = await axios.post('https://culturebackoffice-production.up.railway.app/terrains/demandeterrain', formData);
+      const response = await axios.post('https://culturebackoffice-production.up.railway.app/terrains/demandeterrain', formData2);
       
       console.log('Réponse du serveur:', response.data);
       // Rediriger vers une autre page après l'inscription réussie
