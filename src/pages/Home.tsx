@@ -5,6 +5,7 @@ import '../../public/HomePage.css';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 const Home = () => {
+  const [newPhoto, setNewPhoto] = useState('');
 const history = useHistory();
 const [selectedPhotos, setSelectedPhotos] = useState([]);
 // Récupérer idUser depuis le localStorage
@@ -13,6 +14,7 @@ const idUser = localStorage.getItem('userData');
     desc: '',
     geolocalisation: '',
     idUser: idUser,
+    photo: '',
 
   });
 
@@ -20,14 +22,31 @@ const idUser = localStorage.getItem('userData');
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
-
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleAddPhoto = () => {
+    if (newPhoto.trim() !== '') {
+      setNewPhoto(formData.photo);
+    }
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Données soumises :', formData);
+    
+    // Créer un objet FormData
+    const formData2 = new FormData();
+    
+    // Ajouter les champs du formulaire à l'objet FormData
+    formData2.append('desc', formData.desc);
+    formData2.append('geolocalisation', formData.geolocalisation);
+    formData2.append('idUser', formData.idUser);
+    
+    // Ajouter l'image sélectionnée à l'objet FormData
+    if (selectedPhotos.length > 0) {
+      formData2.append('photo', selectedPhotos[0]);
+    }
     
     try {
-      const response = await axios.post(`https://culturebackoffice-production.up.railway.app/terrains/demandeterrain?desc=${formData.desc}&geolocalisation=${formData.geolocalisation}&idUser=${formData.idUser}`);
-
+      // Envoyer la requête POST avec Axios
+      const response = await axios.post('https://culturebackoffice-production.up.railway.app/terrains/demandeterrain', formData);
+      
       console.log('Réponse du serveur:', response.data);
       // Rediriger vers une autre page après l'inscription réussie
       redirectToPage1();
@@ -36,6 +55,7 @@ const idUser = localStorage.getItem('userData');
       // Gérer les erreurs de requête
     }
   };
+  
 
   const handlePhotoChange = (e: { target: { files: any; }; }) => {
     const files = e.target.files;
@@ -71,6 +91,18 @@ const idUser = localStorage.getItem('userData');
         </label>
         <br />
         
+        <div className="controls">
+          <br />
+          <input
+            type="file"
+            placeholder="Nouvelle photo URL"
+            name='photo'
+            value={newPhoto}
+            onChange={(e) => setNewPhoto(e.target.value)}
+          />
+          <button onClick={handleAddPhoto}>Ajouter image</button>
+        </div>
+
         <button type="submit" className='btn1'>Valider</button>
       </form>
       <button type="submit" className='btn2' onClick={redirectToPage2}>Retour</button>

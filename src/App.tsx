@@ -45,7 +45,7 @@ const App: React.FC = () => (
           <Route path="/AjoutCulture/:idParcelle" component={AjoutCulture} exact />
           <Route path="/AjoutRecolte/:idParcelle" component={AjoutRecolte} exact />
           <Route path="/TerrainDetails/:idTerrain" component={TerrainDetails} exact />
-          <Route path="/InsertParcel/:idTerrain" component={TerrainDetails} exact />
+          <Route path="/InsertParcel/:idTerrain" component={InsertParcel} exact />
           <Redirect from="/" to="/start" exact />
         </Switch>
       </IonRouterOutlet>
