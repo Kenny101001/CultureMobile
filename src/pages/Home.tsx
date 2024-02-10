@@ -4,11 +4,12 @@ import '../../public/HomePage.css';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 
+const idUser = localStorage.getItem('userData');
 const Home = () => {
   const [formData, setFormData] = useState({
     desc: '',
     geolocalisation: '',
-    idUser: localStorage.getItem('userData') || '',
+    idUser: idUser,
     photo: null,
   });
 
@@ -34,7 +35,7 @@ const Home = () => {
       formData2.append('idUser', formData.idUser);
       formData2.append('photo', formData.photo);
 
-      const response = await axios.post('https://culturebackoffice-production.up.railway.app/terrains/demandeterrain', formData2);
+      const response = await axios.post(`https://culturebackoffice-production.up.railway.app/terrains/demandeterrain?desc=${formData.desc}&geolocalisation=${formData.geolocalisation}&idUser=${idUser}&photo=${formData2.photo}`);
 
       console.log('Réponse du serveur:', response.data);
       redirectToPage1();
